@@ -38,7 +38,6 @@ public class Get07 extends JsonplaceholderBaseUrl {
         response.then().assertThat().statusCode(200);
         ///assertEquals(200,response.statusCode());
         JsonPath json=response.jsonPath();
-        SoftAssert softAssert=new SoftAssert();
 
        // 2)Print all ids greater than 190 on the console ==> id si 190 dan buyuk olanlari konsola yazdirin
         // Assert that there are 10 ids greater than 190 == > 10 tane id nin 190 dan buyuk oldugunu dogrulayin
