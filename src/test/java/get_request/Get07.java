@@ -44,7 +44,7 @@ public class Get07 extends JsonplaceholderBaseUrl {
         //body icinde islem yapacagimizda jsonPath ve Grovy Language kullanilir
         List<Integer> ids =json.getList("findAll{it.id>190}.id");
         System.out.println("Id'si 190 dan Buyuk Olanlar = " + ids);
-        //assertEquals("Id 190 dan buyuk olan eslesmedi",ids.size(),equalTo(10)); <10> actual bu sekilde oldugu icin
+        //assertEquals("Id 190 dan buyuk olan eslesmedi",ids.size(),equalTo(10));// <10> actual bu sekilde oldugu icin
                 //asagidaki gibi yapmamiz lazim
         assertEquals("Id 190 dan buyuk olan eslesmedi",10,ids.size());
 
