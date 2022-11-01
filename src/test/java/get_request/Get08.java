@@ -5,6 +5,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 import org.testng.asserts.SoftAssert;
+import test_data.JsonplaceholderTestData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -74,6 +75,11 @@ public class Get08 extends JsonplaceholderBaseUrl {
         assertEquals(expectedData.get("title"),actualData.get("title"));
         assertEquals(expectedData.get("completed"),actualData.get("completed"));
 
-
+        //3.yol dinamik yontem(66 -70 satirdaki gibi manul ekleme yapmadik parametre gonderip methodu kullandik)
+        JsonplaceholderTestData obj=new JsonplaceholderTestData();
+        Map<String,Object> expectedData2=obj.expectedDataMethod(1,"quis ut nam facilis et officia qui",false);
+        assertEquals(expectedData2.get("userId"),actualData.get("userId"));
+        assertEquals(expectedData2.get("title"),actualData.get("title"));
+        assertEquals(expectedData2.get("completed"),actualData.get("completed"));
     }
 }
