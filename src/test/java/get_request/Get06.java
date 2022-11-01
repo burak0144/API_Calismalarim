@@ -55,8 +55,6 @@ public class Get06 extends RestfulBaseUrl {
        JsonPath json=response.jsonPath();
         SoftAssert softAssert=new SoftAssert();
 
-        //yukardaki gibi yapamayiz cunku bize boolean donderiyor
-
         softAssert.assertEquals("Jim",json.getString("firstname"));
         softAssert.assertEquals("Brown",json.getString("lastname"));
         softAssert.assertEquals(111,json.getInt("totalprice"));

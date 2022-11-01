@@ -1,7 +1,13 @@
 package get_request;
 
 import base_url.JsonplaceholderBaseUrl;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import org.junit.Test;
+import org.testng.asserts.SoftAssert;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class Get08 extends JsonplaceholderBaseUrl {
     //De-Serialization: Json datayı Java objesine çevirme
@@ -32,6 +38,25 @@ public class Get08 extends JsonplaceholderBaseUrl {
 
     @Test
     public void get08() {
+        spec.pathParams("first","todos","second",2);
+        Response response=given().spec(spec).when().get("/{first}/{second}");
+        response.then().statusCode(200).header("Via",equalTo("1.1 vegur")).header("Server",equalTo("cloudflare"));
+
+        //1.yol
+        response.then().statusCode(200).header("Via",equalTo("1.1 vegur")).header("Server",equalTo("cloudflare")).
+                body("userId",equalTo(1),
+                        "title",equalTo("quis ut nam facilis et officia qui"),
+                        "completed",equalTo(false));
+
+       //2.yol
+        JsonPath json =response.jsonPath();
+        SoftAssert softAssert= new SoftAssert();
+        softAssert.assertEquals(json.getInt("userId"),1);
+        softAssert.assertEquals(json.getString("title"),"quis ut nam facilis et officia qui");
+        softAssert.assertEquals(json.getBoolean("completed"),false);
+
+         softAssert.assertAll();
+
 
     }
 }
