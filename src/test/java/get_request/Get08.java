@@ -6,8 +6,12 @@ import io.restassured.response.Response;
 import org.junit.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertEquals;
 
 public class Get08 extends JsonplaceholderBaseUrl {
     //De-Serialization: Json datayı Java objesine çevirme
@@ -56,6 +60,19 @@ public class Get08 extends JsonplaceholderBaseUrl {
         softAssert.assertEquals(json.getBoolean("completed"),false);
 
          softAssert.assertAll();
+
+         //3.yol
+        Map<String,Object> expectedData=new HashMap<>();
+        expectedData.put("userId",1);
+        expectedData.put("title","quis ut nam facilis et officia qui");
+        expectedData.put("completed",false);
+        System.out.println("expected data ="+expectedData);
+
+        Map<String,Object> actualData=response.as(HashMap.class);//De-Serialization
+        System.out.println("actual data ="+actualData);
+        assertEquals(expectedData.get("userId"),actualData.get("userId"));
+        assertEquals(expectedData.get("title"),actualData.get("title"));
+        assertEquals(expectedData.get("completed"),actualData.get("completed"));
 
 
     }

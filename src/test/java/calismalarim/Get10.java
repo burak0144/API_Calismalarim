@@ -1,4 +1,4 @@
-package get_request;
+package calismalarim;
 
 import base_url.AutoBaseUrl;
 import io.restassured.path.json.JsonPath;
