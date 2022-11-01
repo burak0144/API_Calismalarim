@@ -47,13 +47,13 @@ public class Get08 extends JsonplaceholderBaseUrl {
         Response response=given().spec(spec).when().get("/{first}/{second}");
         response.then().statusCode(200).header("Via",equalTo("1.1 vegur")).header("Server",equalTo("cloudflare"));
 
-        //1.yol
+        //1.yol body ile
         response.then().statusCode(200).header("Via",equalTo("1.1 vegur")).header("Server",equalTo("cloudflare")).
                 body("userId",equalTo(1),
                         "title",equalTo("quis ut nam facilis et officia qui"),
                         "completed",equalTo(false));
 
-       //2.yol
+       //2.yol json ile
         JsonPath json =response.jsonPath();
         SoftAssert softAssert= new SoftAssert();
         softAssert.assertEquals(json.getInt("userId"),1);
@@ -62,7 +62,7 @@ public class Get08 extends JsonplaceholderBaseUrl {
 
          softAssert.assertAll();
 
-         //3.yol
+         //3.yol map ile
         Map<String,Object> expectedData=new HashMap<>();
         expectedData.put("userId",1);
         expectedData.put("title","quis ut nam facilis et officia qui");
@@ -75,11 +75,12 @@ public class Get08 extends JsonplaceholderBaseUrl {
         assertEquals(expectedData.get("title"),actualData.get("title"));
         assertEquals(expectedData.get("completed"),actualData.get("completed"));
 
-        //3.yol dinamik yontem(66 -70 satirdaki gibi manul ekleme yapmadik parametre gonderip methodu kullandik)
+        //4.yol map dinamik yontem(66 -70 satirdaki gibi ekleme yapmadik parametre gonderip methodu kullandik)
         JsonplaceholderTestData obj=new JsonplaceholderTestData();
         Map<String,Object> expectedData2=obj.expectedDataMethod(1,"quis ut nam facilis et officia qui",false);
-        assertEquals(expectedData2.get("userId"),actualData.get("userId"));
-        assertEquals(expectedData2.get("title"),actualData.get("title"));
-        assertEquals(expectedData2.get("completed"),actualData.get("completed"));
+        Map<String,Object> actualData2=response.as(HashMap.class);
+        assertEquals(expectedData2.get("userId"),actualData2.get("userId"));
+        assertEquals(expectedData2.get("title"),actualData2.get("title"));
+        assertEquals(expectedData2.get("completed"),actualData2.get("completed"));
     }
 }
