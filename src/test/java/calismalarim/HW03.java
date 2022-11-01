@@ -8,7 +8,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Get10 extends AutoBaseUrl {
+public class HW03 extends AutoBaseUrl {
     @Test
     public void name() {
        // https://automationexercise.com/api/getUserDetailByEmail
