@@ -40,35 +40,35 @@ public class Get09 extends RestfulBaseUrl {
         spec.pathParams("first","booking","second",91);
         Response response=given().spec(spec).when().get("/{first}/{second}");
         //`1.yol body ile
-        response.then().body("firstname",equalTo("Sally"),
-                "lastname",equalTo("Brown"),
+        response.then().body("firstname",equalTo("Howard"),
+                "lastname",equalTo("Liu"),
                 "totalprice",equalTo(111),
                 "depositpaid",equalTo(true),
-                "bookingdates.checkin",equalTo("2013-02-23"),
-                "bookingdates.checkout",equalTo("2014-10-23"),
+                "bookingdates.checkin",equalTo("2018-01-01"),
+                "bookingdates.checkout",equalTo("2019-01-01"),
                 "additionalneeds",equalTo("Breakfast"));
 
         //2.yol jsonPath ile
         JsonPath json=response.jsonPath();
         SoftAssert softAssert= new SoftAssert();
-        softAssert.assertEquals(json.getString("firstname"),"Sally");
-        softAssert.assertEquals(json.getString("lastname"),"Brown");
+        softAssert.assertEquals(json.getString("firstname"),"Howard");
+        softAssert.assertEquals(json.getString("lastname"),"Liu");
         softAssert.assertEquals(json.getInt("totalprice"),111);
         softAssert.assertEquals(json.getBoolean("depositpaid"),true);
-        softAssert.assertEquals(json.getString("bookingdates.checkin"),"2013-02-23");
-        softAssert.assertEquals(json.getString("bookingdates.checkout"),"2014-10-23");
+        softAssert.assertEquals(json.getString("bookingdates.checkin"),"2018-01-01");
+        softAssert.assertEquals(json.getString("bookingdates.checkout"),"2019-01-01");
         softAssert.assertEquals(json.getString("additionalneeds"),"Breakfast");
 
         softAssert.assertAll();
 
         //3.yol map ile
         Map<String,String> expectedDataBookingdates=new HashMap<>();  //once inner map yapildi
-        expectedDataBookingdates.put("checkin","2013-02-23");
-        expectedDataBookingdates.put("checkout","2014-10-23");
+        expectedDataBookingdates.put("checkin","2018-01-01");
+        expectedDataBookingdates.put("checkout","2019-01-01");
 
         Map<String,Object> expectedDataAll=new HashMap<>(); //outer map yapildi
-        expectedDataAll.put("firstname","Sally");
-        expectedDataAll.put("lastname","Brown");
+        expectedDataAll.put("firstname","Howard");
+        expectedDataAll.put("lastname","Liu");
         expectedDataAll.put("totalprice",111);
         expectedDataAll.put("bookingdates",expectedDataBookingdates);//ilk map eklendi
         expectedDataAll.put("additionalneeds","Breakfast");
@@ -87,8 +87,8 @@ public class Get09 extends RestfulBaseUrl {
 
         //4.yol map ile dinamik
         RestfulTestData obj = new RestfulTestData();
-        Map<String, Object> expectedDataBookingdates2=obj.expectedDataBookingdatesMethod("2013-02-23","2014-10-23");//inner map
-        Map<String,Object>expectedDataAll2=obj.expectedDataAllMethod("Sally","Brown",111,expectedDataBookingdates2,"Breakfast");//outer map
+        Map<String, Object> expectedDataBookingdates2=obj.expectedDataBookingdatesMethod("2018-01-01","2019-01-01");//inner map
+        Map<String,Object>expectedDataAll2=obj.expectedDataAllMethod("Howard","Liu",111,expectedDataBookingdates2,"Breakfast");//outer map
         //dinamik yontemde testdatalarini diger classtan alarak yaptik,yukardaki satirdaki expectedDataBookingdates2'yi inner mapte bi ust satirda olusturdugumuzu yazdik
         Map<String,Object> actualData2=response.as(HashMap.class);
         //karsilastirma yapalim

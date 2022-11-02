@@ -55,6 +55,7 @@ public class Get08 extends JsonplaceholderBaseUrl {
 
        //2.yol json ile
         JsonPath json =response.jsonPath();
+       // JsonPath json2=new JsonPath(response.asString());
         SoftAssert softAssert= new SoftAssert();
         softAssert.assertEquals(json.getInt("userId"),1);
         softAssert.assertEquals(json.getString("title"),"quis ut nam facilis et officia qui");
