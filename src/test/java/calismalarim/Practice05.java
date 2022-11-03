@@ -12,5 +12,6 @@ public class Practice05 {
         String token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYXRjaDgxIiwiYXV0aCI6IlJPTEVfQURNSU4iLCJleHAiOjE2NzAwMDQyNzd9.ZGNWLPbWqtl2htNVkOWTgF_KHJOXFJX8Z0sUFSK66KGccFrMD9TR15xJWZE3FdsVZISELbrYhg3j4nfO0YsSWQ";
 
         Response response=given().headers("Authorization","Bearer"+token).when().get(url);
+        response.prettyPrint();
     }
 }
