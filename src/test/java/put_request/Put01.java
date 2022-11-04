@@ -1,6 +1,18 @@
 package put_request;
 
-public class Put01 {
+import base_url.JsonplaceholderBaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import org.junit.Test;
+import test_data.JsonplaceholderTestData;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
+
+public class Put01 extends JsonplaceholderBaseUrl {
  /*
         Given
 	        1) https://jsonplaceholder.typicode.com/todos/198
@@ -20,4 +32,20 @@ public class Put01 {
 									    "id": 198
 									   }
      */
+
+    @Test
+    public void put01() {
+        spec.pathParams("first","todos","second",198);
+        JsonplaceholderTestData obj= new JsonplaceholderTestData();
+        Map<String,Object> expectedData = obj.expectedDataMethod(21,"Wash the dishes",false);
+        Response response=given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().put("/{first}/{second}");
+
+        Map<String,Object>actualData=response.as(HashMap.class);
+        assertEquals(expectedData.get("userId"),actualData.get("userId"));
+        assertEquals(expectedData.get("title"),actualData.get("title"));
+        assertEquals(expectedData.get("completed"),actualData.get("completed"));
+
+        System.out.println("expectedData = " + expectedData);
+        System.out.println("actualData = " + actualData);
+    }
 }
