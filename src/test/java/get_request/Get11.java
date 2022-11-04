@@ -42,7 +42,7 @@ public class Get11 extends GorestUrl {
                "meta.pagination.links.current",equalTo("https://gorest.co.in/public/v1/users?page=1"),
                 "data",hasSize(10),
                 "data.status",hasItem("active"),
-                "data.name",hasItems("Meena Pillai","Tara Nambeesan DO"));
+                "data.name",hasItems("Swara Mishra","Ekaling Somayaji"));
         //1.yol list'e atarak karsilastirma yapilabilir
         List<String> genders=response.jsonPath().getList("data.gender");
         int female=0;
