@@ -20,13 +20,13 @@ public class Get13_Pojo extends RestfulBaseUrl {
       And
           Response body is like:
                      {
-                        "firstname": "Guoqiang",
-                        "lastname": "Liu",
+                        "firstname": "Sally",
+                        "lastname": "Brown",
                         "totalprice": 111,
                         "depositpaid": true,
                         "bookingdates": {
-                            "checkin": "2018-01-01",
-                            "checkout": "2019-01-01"
+                            "checkin": "2013-02-23",
+                            "checkout": "2014-10-23"
                         },
                         "additionalneeds": "Breakfast"
                       }
@@ -44,6 +44,7 @@ public class Get13_Pojo extends RestfulBaseUrl {
         //Dinamik Map ile HashMap kullanilirken burada Pojo class'imizi kullanarak actualData olusturduk
         BookingPojo actualData=response.as(BookingPojo.class);
 
+        assertEquals(200,response.statusCode());
         assertEquals(expectedData.getFirstname(), actualData.getFirstname());
         assertEquals(expectedData.getLastname(), actualData.getLastname());
         assertEquals(expectedData.getTotalprice(), actualData.getTotalprice());
