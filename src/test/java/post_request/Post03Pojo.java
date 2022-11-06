@@ -46,6 +46,7 @@ public class Post03Pojo extends JsonplaceholderBaseUrl {
 
         JsonPlaceholderPojo actualData=response.as(JsonPlaceholderPojo.class);
 
+        assertEquals(201,response.statusCode());
         assertEquals(expectedData.getUserId(), actualData.getUserId());
         assertEquals(expectedData.getCompleted(), actualData.getCompleted());
         assertEquals(expectedData.getTitle(), actualData.getTitle());

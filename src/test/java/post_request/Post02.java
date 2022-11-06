@@ -33,19 +33,17 @@ public class Post02 extends RestfulBaseUrl {
    Then
        Status code is 200
        And response body should be like {
-                                           "bookingid": 5315,
-                                           "booking": {
-                                               "firstname": "Agustin",
-                                               "lastname": "Parchment",
-                                               "totalprice": 111,
-                                               "bookingdates": {
-                                                   "checkin": "2018-01-01",
-                                                   "checkout": "2019-01-01"
-                                                   },
-                                               "additionalneeds":Breakfast
-
-                                           }
-                                        }
+                                      "bookingid": 11907,
+                                      "booking": {
+                                          "firstname": "Agustin",
+                                          "lastname": "Parchment",
+                                          "totalprice": 111,
+                                          "depositpaid": true,
+                                          "bookingdates": {
+                                              "checkin": "2021-09-09",
+                                              "checkout": "2021-09-21"
+                                          }
+                                      }
 */
 
     @Test
@@ -59,7 +57,7 @@ public class Post02 extends RestfulBaseUrl {
         System.out.println("expectedDataAll = " + expectedDataAll);
         //post'ta contentType eklenmek zorunda
         Response response=given().spec(spec).contentType(ContentType.JSON).body(expectedDataAll).when().post("/{first}");
-
+         response.prettyPrint();
         Map<String,Object>actualData=response.as(HashMap.class);
         System.out.println("actualData = " + actualData);
         assertEquals(expectedDataAll.get("firstname"),((Map)actualData.get("booking")).get("firstname"));
