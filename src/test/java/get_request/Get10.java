@@ -70,7 +70,7 @@ public class Get10 extends GorestUrl {
         expectedAll.put("data",expectedData);  //inner eklendi
 
         //Sonra actual map'i olusturalim
-        Map<String,Object> actualMap=response.as(HashMap.class); //response'dan alinip map'e cevrildi
+        HashMap actualMap=response.as(HashMap.class); //response'dan alinip map'e cevrildi
 
         //karsilastiralim
         assertEquals(expectedAll.get("meta"), actualMap.get("meta"));
