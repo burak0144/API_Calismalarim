@@ -87,7 +87,7 @@ public class Get09 extends RestfulBaseUrl {
 
         //4.yol map ile dinamik
         RestfulTestData obj = new RestfulTestData();
-        Map<String, Object> expectedDataBookingdates2=obj.expectedDataBookingdatesMethod("2018-01-01","2019-01-01");//inner map
+        Map<String, String> expectedDataBookingdates2=obj.expectedDataBookingdatesMethod("2018-01-01","2019-01-01");//inner map
         Map<String,Object>expectedDataAll2=obj.expectedDataAllMethod("Howard","Liu",111,expectedDataBookingdates2,"Breakfast");//outer map
         //dinamik yontemde testdatalarini diger classtan alarak yaptik,yukardaki satirdaki expectedDataBookingdates2'yi inner mapte bi ust satirda olusturdugumuzu yazdik
         Map<String,Object> actualData2=response.as(HashMap.class);
