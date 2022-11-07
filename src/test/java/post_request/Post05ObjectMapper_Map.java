@@ -44,7 +44,7 @@ public class Post05ObjectMapper_Map extends JsonplaceholderBaseUrl {
                 "                                    \"completed\": false,\n" +
                 "                                    \"id\": 201\n" +
                 "                                    }";
-
+        //String ifade ObjectMapper'in readValue methoduyla HashMap'e cevrilecek
         HashMap expectedData=new ObjectMapper().readValue(jsonInString,HashMap.class);
 
         //Post oldugundan content type yazilacak
