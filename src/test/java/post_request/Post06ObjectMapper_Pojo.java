@@ -8,6 +8,7 @@ import org.junit.Test;
 import pojos.JsonPlaceholderPojo;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
