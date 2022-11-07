@@ -28,9 +28,9 @@ public class Get15ObjectMapper_Map extends JsonplaceholderBaseUrl {
 									    "completed": true
 									  }
      */
-
+    //ObjectMapper + Map yontemi
     @Test
-    public void get16Map() throws IOException {
+    public void get15ObjectMapper_Map() throws IOException {
         spec.pathParams("first","todos","second",198);
 
         String jsonInString="{\n" +
@@ -39,7 +39,7 @@ public class Get15ObjectMapper_Map extends JsonplaceholderBaseUrl {
                 "    \"completed\": true\n" +
                 "  }";
         //36.satir ile 46.satir dinamik olmadigindan dinamik hale getirilecektir
-        HashMap expectedData =new ObjectMapper().readValue(jsonInString,HashMap.class);
+        HashMap expectedData =new ObjectMapper().readValue(jsonInString,HashMap.class);//string ifade HashMap'e cevrildi
 
         Response response=given().spec(spec).when().get("/{first}/{second}");
 
@@ -49,5 +49,8 @@ public class Get15ObjectMapper_Map extends JsonplaceholderBaseUrl {
         assertEquals(expectedData.get("userId"), actualData.get("userId"));
         assertEquals(expectedData.get("title"), actualData.get("title"));
         assertEquals(expectedData.get("completed"), actualData.get("completed"));
+
+        //2.yol dinamik
+
     }
 }
