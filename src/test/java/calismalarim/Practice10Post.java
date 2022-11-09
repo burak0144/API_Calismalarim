@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import pojos.GMICountryDataPostPojo;
 import utilities.Authentication;
+import utils.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
 import static utilities.Authentication.generateToken;
@@ -28,7 +29,7 @@ public class Practice10Post extends GMIBankBaseUrl {
                 .spec(spec).when().body(countryPost)
                 .post("/{first}");
 
-        GMICountryDataPostPojo actualData=response.as(GMICountryDataPostPojo.class);
+        GMICountryDataPostPojo actualData= ObjectMapperUtils.convertJsonToJava(response.asString(),GMICountryDataPostPojo.class);
 
         Assert.assertEquals(countryPost.getName(), actualData.getName());
 
