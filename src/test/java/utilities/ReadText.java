@@ -19,10 +19,10 @@ public class ReadText {
             int i = 0;
             while (line != null) {
                 GMICustomerPojo customer = new GMICustomerPojo();
-                //customer.setSsn(line.split(",")[0]);
+                customer.setSsn(line.split(",")[0]);
                 sb.append(System.lineSeparator());
                 line = br.readLine();
-                //all.add(customer.getSsn());
+                all.add(customer.getSsn());
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class ReadText {
                 //customer.setEmail(line.split(",")[0]);
                 sb.append(System.lineSeparator());
                 line = br.readLine();
-                //all.add(customer.getEmail());
+                all.add(customer.getEmail());
             }
         }catch (Exception e){
             e.printStackTrace();

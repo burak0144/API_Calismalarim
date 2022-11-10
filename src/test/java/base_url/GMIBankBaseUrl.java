@@ -9,6 +9,6 @@ public class GMIBankBaseUrl {
     protected RequestSpecification spec;
     @Before
     public void setup(){
-        spec=new RequestSpecBuilder().setBaseUri("http://www.gmibank.com/api/").build();
+        spec=new RequestSpecBuilder().setBaseUri("https://www.gmibank.com/api").build();
     }
 }

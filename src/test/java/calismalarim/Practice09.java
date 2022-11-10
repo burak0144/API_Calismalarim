@@ -1,6 +1,7 @@
 package calismalarim;
 
 import base_url.GMIBankBaseUrl;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.GMICountryDataPojo;

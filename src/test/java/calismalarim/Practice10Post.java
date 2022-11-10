@@ -8,10 +8,12 @@ import org.junit.Test;
 
 import pojos.GMICountryDataPojo;
 import pojos.GMICountryPostPojo;
+import pojos.GMICustomerPojo;
 import utilities.Authentication;
 import utils.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
+
 
 
 public class Practice10Post extends GMIBankBaseUrl {
@@ -23,19 +25,21 @@ public class Practice10Post extends GMIBankBaseUrl {
     public void test10() {
         spec.pathParam("first", "tp-countries");
 
-        GMICountryDataPojo countryPost = new GMICountryDataPojo(234,"Muz Cumhuriyeti2",null);
-        System.out.println("countryPost = " + countryPost);
+        GMICountryPostPojo countryPost = new GMICountryPostPojo("Muz Cumhuriyeti");
+
 
         Response response = given().contentType(ContentType.JSON)
                 .headers("Authorization", "Bearer " + Authentication.generateToken())
-                .spec(spec).when().body(countryPost)
+                .spec(spec)
+                .when()
+                .body(countryPost)
                 .post("/{first}");
 
         response.prettyPrint();
 
-        GMICountryDataPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(),GMICountryDataPojo.class);
+        GMICountryPostPojo actualData =response.as(GMICountryPostPojo.class);
         System.out.println("actualData = " + actualData);
 
-        //Doğrulama Yaptık
+       //Doğrulama Yaptık
         Assert.assertEquals(countryPost.getName(), actualData.getName());
     } }

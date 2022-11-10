@@ -68,7 +68,7 @@ public class Practice11 extends GMIBankBaseUrl {
 
         Assert.assertTrue("SSNLER eşleşmedi", actualSNN.containsAll(expectedSSN));
 
-        String fileName1 = "src/test/java/day04/AllData.txt";
+        String fileName1 = "src/test/java/calismalarim/AllData.txt";
         WriteToText.saveCustomersData(fileName1, customers);
 
 
