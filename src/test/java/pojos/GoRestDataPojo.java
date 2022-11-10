@@ -1,5 +1,8 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GoRestDataPojo {
     private Integer id;
     private String name;

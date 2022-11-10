@@ -1,8 +1,9 @@
 package get_request;
 
 import base_url.JsonplaceholderBaseUrl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
-import org.codehaus.jackson.map.ObjectMapper;
+
 import org.junit.Test;
 import pojos.JsonPlaceholderPojo;
 

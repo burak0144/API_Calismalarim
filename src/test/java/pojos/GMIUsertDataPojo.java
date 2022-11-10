@@ -1,7 +1,8 @@
 package pojos;
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class GMIUsertDataPojo {
     private Integer id;
     private String login;

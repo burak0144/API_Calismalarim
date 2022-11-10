@@ -1,9 +1,10 @@
 package post_request;
 
 import base_url.JsonplaceholderBaseUrl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.codehaus.jackson.map.ObjectMapper;
+
 import org.junit.Test;
 
 import java.io.IOException;

@@ -1,17 +1,12 @@
 package pojos;
 
+
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GMICountryDataPostPojo {
+public class GMICountryPostPojo {
+
     private String name;
-
-    public GMICountryDataPostPojo() {
-    }
-
-    public GMICountryDataPostPojo(String name) {
-        this.name = name;
-    }
 
     public String getName() {
         return name;
@@ -21,9 +16,16 @@ public class GMICountryDataPostPojo {
         this.name = name;
     }
 
+    public GMICountryPostPojo() {
+    }
+
+    public GMICountryPostPojo(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "GMICountryDataPostPojo{" +
+        return "CountryPost{" +
                 "name='" + name + '\'' +
                 '}';
     }

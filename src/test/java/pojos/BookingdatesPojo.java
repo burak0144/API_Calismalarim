@@ -1,5 +1,8 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingdatesPojo {
     //Pojo olustururken field'da private access modifier ile datalari initialize edilip
     //parametresiz ve parametreli construct'lar olusturulup
