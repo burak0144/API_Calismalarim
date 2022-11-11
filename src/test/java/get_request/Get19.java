@@ -23,6 +23,6 @@ public class Get19 extends DummyRestApiBaseUrl {
      */
      public void get19() {
          spec.pathParams("first","employees","second",1);
-         Dum
+
      }
 }
