@@ -1,6 +1,8 @@
 package get_request;
 
-public class Get19 {
+import base_url.DummyRestApiBaseUrl;
+
+public class Get19 extends DummyRestApiBaseUrl {
      /*
     Given
         URL: https://dummy.restapiexample.com/api/v1/employee/1
@@ -19,4 +21,8 @@ public class Get19 {
     And
         "message" is "Successfully! Record has been fetched."
      */
+     public void get19() {
+         spec.pathParams("first","employees","second",1);
+         Dum
+     }
 }

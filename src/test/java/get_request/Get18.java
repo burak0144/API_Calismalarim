@@ -1,6 +1,11 @@
 package get_request;
 
-public class Get18 {
+import base_url.DummyRestApiBaseUrl;
+import base_url.RestfulBaseUrl;
+import org.junit.Test;
+import pojos.DummyRestApiPojo;
+
+public class Get18 extends DummyRestApiBaseUrl {
     /*
            URL: https://dummy.restapiexample.com/api/v1/employees
            HTTP Request Method: GET Request
@@ -32,4 +37,10 @@ public class Get18 {
    And
        vi) Total salary of all employees is 6,644,770
      */
+
+    @Test
+    public void get18() {
+        spec.pathParams("first","employees");
+        Dum
+    }
 }
