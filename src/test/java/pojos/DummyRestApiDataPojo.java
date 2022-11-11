@@ -1,6 +1,7 @@
 package pojos;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DummyRestApiDataPojo {
@@ -31,7 +32,7 @@ public class DummyRestApiDataPojo {
         return employee_salary;
     }
 
-    public void setEmployee_salaty(Integer employee_salary) {
+    public void setEmployee_salary(Integer employee_salary) {
         this.employee_salary = employee_salary;
     }
 

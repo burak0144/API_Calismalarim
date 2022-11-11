@@ -1,5 +1,5 @@
 package pojos;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class DummyRestApiDeletePojo {
     private String status;
     private String data;
