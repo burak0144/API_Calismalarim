@@ -27,7 +27,6 @@ public class Practice10Post extends GMIBankBaseUrl {
 
         GMICountryPostPojo countryPost = new GMICountryPostPojo("Muz Cumhuriyeti");
 
-
         Response response = given().contentType(ContentType.JSON)
                 .headers("Authorization", "Bearer " + Authentication.generateToken())
                 .spec(spec)
