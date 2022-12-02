@@ -42,4 +42,5 @@ public class Practice10Post extends GMIBankBaseUrl {
        //Doğrulama Yaptık
         Assert.assertEquals(countryPost.getName(), actualData.getName());
 
-    } }
+    }
+}
